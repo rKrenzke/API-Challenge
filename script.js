@@ -16,15 +16,24 @@ const contact = document.getElementById('contact');
 const fees = document.getElementById('fees');
 const totalSites = document.getElementById('totalSites');
 const description = document.getElementById('description');
+const siteImage = document.querySelector('.siteImage');
+const nav = document.querySelector('nav');
+const lastBtn = document.getElementById('lastSite');
+const nextBtn = document.getElementById('nextSite');
 
 searchBtn.addEventListener('click', fetchResults);
+lastBtn.addEventListener('click', lastSite);
+nextBtn.addEventListener('click', nextSite);
 
+let pageNumber = 1;
+
+nav.style.display = 'none';
 
 function fetchResults(e){
     e.preventDefault();
     //console.log('clicked');
     if(stateCode.value !== ''){
-        url = baseURL + "/campgrounds?stateCode=" + stateCode + "&limit=10&api_key=" + key;
+        url = baseURL + "/campgrounds?stateCode=" + stateCode + "&start=" + pageNumber + "&limit=1&api_key=" + key;
     }
     
     fetch(url)
@@ -36,9 +45,36 @@ function fetchResults(e){
 }
 
 function displayResults(json){
-    //console.log(json.data[3].campsites.totalSites);
-    parkName.innerText = json.data[3].name;
-    totalSites.innerText = json.data[3].campsites.totalSites;
-    contact.innerText = json.data[3].contacts.emailAddresses[0].emailAddress;
-    description.innerText = json.data[3].description;
-}
+    while(siteImage.firstChild){
+        siteImage.removeChild(siteImage.firstChild);
+    }
+
+    let allSites = json.data;
+
+    for(let i = 0; i < allSites.length; i++){
+    let current = allSites[i];
+    parkName.innerText = current.name;
+    totalSites.innerText = current.campsites.totalSites
+    contact.innerText = current.contacts.emailAddresses[0].emailAddress;
+    description.innerText = current.description;
+    let siteImg = document.createElement('img');
+    siteImg.src = current.images[0].url;
+    
+    nav.style.display = '';
+    siteImage.appendChild(siteImg);
+    }
+};
+
+function nextSite(e){
+    pageNumber++;
+    fetchResults(e);
+};
+
+function lastSite(e){
+    if(pageNumber > 0){
+        pageNumber--;
+    } else{
+        return;
+    }
+    fetchResults(e);
+};
