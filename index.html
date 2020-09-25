@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Kufam:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <title>API Challenge</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="landing">
+            <section class="logo">
+                <div class="tent-logo">
+                    <img src="./assets/tent.png" height="140" width="130" alt="tent-logo">
+                </div>
+                <div>
+                    <h1>Happy Campr</h1>
+                    <h3>Find the perfect campsite</h3>
+                </div>
+            </section>
+            <section class="search">
+                <p>
+                    <label for="stateCode">Search by State:</label>
+                    <input type="text" id="stateCode" placeholder="ex. MI">
+                </p>
+                <hr>
+                <h3>OR</h3>
+                <hr>
+                <p>
+                    <label for="userZip">Parks Near You: </label>
+                    <input type="text" id="userZip" placeholder="Enter your ZIP Code">
+                </p>
+                <button id="find-site">Find A Site!</button>
+            </section>
+        </div>
+        <div class="results">
+            <table class="results-table">
+                <tr>
+                    <td class= "info">Site Name:</td>
+                    <td id="parkName"></td>
+                </tr>
+                <!-- <tr>
+                    <td>Park Address:</td>
+                    <td id="parkAddress"></td>
+                </tr> -->
+                <tr>
+                    <td class= "info">Open From:</td>
+                    <td id="openDates"><span>to</span></td>
+                </tr>
+                <tr>
+                    <td class= "info">Total Sites:</td>
+                    <td id="totalSites"></td>
+                </tr>
+                <tr>
+                    <td class= "info">Contact:</td>
+                    <td id="contact"></td>
+                <tr>
+                    <td class= "info">Fees:</td>
+                    <td id="fees"></td>
+                </tr>
+                <tr>
+                    <td class= "info">Description:</td>
+                    <td><textarea id="description" cols="55" rows="7"></textarea></td>
+                </tr>
+            </table>
+            <nav class="nav">
+                <button id="lastSite" class="nav-button">&lt; Last Site</button>
+                <button id="nextSite" class="nav-button">Next Site ></button>             
+            </nav>
+        </div>
+
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

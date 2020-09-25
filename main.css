@@ -1,0 +1,111 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url(./assets/background-image.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.wrapper{
+    height: 500px;
+    width: 1000px;
+    margin-top: 3em;
+    margin-left: 3em;
+    box-shadow: 3px 3px 10px rgb(58, 54, 54);
+    border-radius: 5px;
+    position: relative;
+}
+
+.landing{
+    display: inline-block;
+    text-align: center;
+}
+
+.logo{
+    background-color: #54553c;
+    height: 250px;
+    width: 400px;
+    border-radius: 5px 0px 0px 0px;
+    color: #ddddd8;
+    border-bottom: 4px solid black;   
+}
+
+h1{
+    font-family: 'Kufam', cursive;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 0;
+}
+
+hr{
+    width: 200px;
+}
+
+h3{
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    margin: 0;
+    letter-spacing: .10em;
+}
+
+.search{
+    border-radius: 0px 0px 0px 5px;
+    height: 246px;
+    width: 400px;
+    background-color: #ddddd8;
+}
+
+h4{
+    font-family: 'Kufam', cursive;
+    margin: 0;
+}
+
+p{
+    margin: 0;
+    padding: 20px;
+}
+
+p label{
+    font-family: 'Kufam', cursive;
+}
+
+.results{
+    float: right;
+}
+
+#find-site{
+    background-color: #54553c;
+    color: #9bd92b;
+    font-family: 'Amatic SC', cursive;
+    width: 200px;
+    height: 45px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#find-site:hover {
+    background-color: #9bd92b;
+    color: #54553c;
+}
+
+.info{
+    font-family: 'Kufam', cursive;
+}
+
+.nav{
+    text-align: center;
+}
+
+.nav-button{
+    background-color: #54553c;
+    color: #9bd92b;
+    font-family: 'Amatic SC', cursive;
+    width: 100px;
+    height: 35px;
+    font-size: 23px;
+    border-radius: 10px;
+}
