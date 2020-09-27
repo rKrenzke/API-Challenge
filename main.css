@@ -11,8 +11,8 @@ body{
 }
 
 .wrapper{
-    height: 500px;
-    width: 1000px;
+    height: 555px;
+    width: 400px;
     margin-top: 3em;
     margin-left: 3em;
     box-shadow: 3px 3px 10px rgb(58, 54, 54);
@@ -28,7 +28,8 @@ body{
 
 .logo{
     background-color: #54553c;
-    height: 250px;
+    padding-top: 15px;
+    height: 290px;
     width: 400px;
     border-radius: 5px 0px 0px 0px;
     color: #ddddd8;
@@ -42,10 +43,14 @@ h1{
     margin: 0;
 }
 
+#fluff{
+    font-family: 'Kufam', cursive;
+    padding: 20px 35px 5px;
+}
 hr{
-    width: 200px;
+    width: 250px;
     margin-top: 3px;
-    margin-bottom: 3px;
+    margin-bottom: 13px;
 }
 
 h3{
@@ -60,6 +65,11 @@ h3{
     height: 246px;
     width: 400px;
     background-color: #ddddd8;
+}
+
+.search p {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 h4{
@@ -83,7 +93,9 @@ p label{
 
 .results-table{
     padding: 15px;
+    margin: 0;
 }
+
 
 #find-site{
     background-color: #54553c;
@@ -103,6 +115,28 @@ p label{
 .info{
     font-family: 'Kufam', cursive;
 }
+
+.reserve{
+    background-color: #54553c;
+    color: #9bd92b;
+    font-family: 'Kufam', cursive;
+    width: 200px;
+    height: 80px;
+    font-size: 23px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.reserve:hover{
+    background-color: #ddddd8;
+    color: #54553c;
+}
+
+.reserve a {
+    text-decoration: none;
+    color: #9bd92b;
+}
+
 
 .nav{
     text-align: center;
@@ -126,10 +160,9 @@ p label{
 
 .siteImage img{
     float: right;
-    margin-top: 0;
     margin-right: 0;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 275px;
+    max-height: 275px;
     padding-right: 10px;
     border-radius: 10px;
 }

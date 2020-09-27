@@ -7,10 +7,10 @@ let url;
 const stateCode = document.getElementById('stateCode');
 const userZip = document.getElementById('userZip');
 const searchBtn = document.getElementById('find-site');
+const wrapper = document.querySelector('.wrapper');
 
 // Results Form
 const parkName = document.getElementById('parkName');
-//const parkAddress = document.getElementById('parkAddress');
 const openDates = document.getElementById('openDates');
 const contact = document.getElementById('contact');
 const fees = document.getElementById('fees');
@@ -20,6 +20,9 @@ const siteImage = document.querySelector('.siteImage');
 const nav = document.querySelector('nav');
 const lastBtn = document.getElementById('lastSite');
 const nextBtn = document.getElementById('nextSite');
+const reserveBtn = document.getElementById('reserveLink');
+const reservation = document.querySelector('.reserve');
+const results = document.querySelector('.results');
 
 searchBtn.addEventListener('click', fetchResults);
 lastBtn.addEventListener('click', lastSite);
@@ -27,13 +30,15 @@ nextBtn.addEventListener('click', nextSite);
 
 let pageNumber = 1;
 
-nav.style.display = 'none';
+reservation.style.display = 'none';
+results.style.display = 'none';
 
 function fetchResults(e){
     e.preventDefault();
-    //console.log('clicked');
+    //console.log('test');
+    let state_Code = stateCode.value;
     if(stateCode.value !== ''){
-        url = baseURL + "/campgrounds?stateCode=" + stateCode + "&start=" + pageNumber + "&limit=1&api_key=" + key;
+        url = baseURL + "/campgrounds?stateCode=" + state_Code + "&start=" + pageNumber + "&limit=1&api_key=" + key;
     }
     
     fetch(url)
@@ -54,16 +59,40 @@ function displayResults(json){
     for(let i = 0; i < allSites.length; i++){
     let current = allSites[i];
     parkName.innerText = current.name;
-    totalSites.innerText = current.campsites.totalSites
+    openDates.innerText = current.operatingHours[0].description;
+    totalSites.innerText = current.campsites.totalSites;
     contact.innerText = current.contacts.emailAddresses[0].emailAddress;
+
+    let totalFee = current.fees[0].cost;
+    fees.innerText = '$' + parseFloat(totalFee);
+
     description.innerText = current.description;
-    let siteImg = document.createElement('img');
-    siteImg.src = current.images[0].url;
     
+    if(current.reservationUrl !== '' || current.reservationUrl !== null){
+    reserveBtn.href = current.reservationUrl;
+    reserveBtn.innerText = 'Plan Your Visit!';
+    reservation.style.display = '';
+    } else{
+        reservation.style.display = 'none';
+        reserveBtn.style.display = 'none';
+    };
+
+    let siteImg = document.createElement('img');
+    if(current.images[0] !== '' || current.images[0] !== null || current.images[0] !== 0){
+        siteImg.src = current.images[0].url;
+    } else{
+        siteImg.src = './assets/imageNotFound.png';
+        siteImg.style.width = '200';
+        siteImg.style.height = '250';
+    }
+    wrapper.style.width = '1000px';
     nav.style.display = '';
+    results.style.display = '';
+    
     siteImage.appendChild(siteImg);
     }
 };
+
 
 function nextSite(e){
     pageNumber++;

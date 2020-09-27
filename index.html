@@ -20,17 +20,13 @@
                 </div>
             </section>
             <section class="search">
+                <p id="fluff"><b>Browse the National Park Service registry of campgrounds to discover amazing campsites across the country</b></p>
                 <p>
                     <label for="stateCode">Search by State:</label>
                     <input type="text" id="stateCode" placeholder="ex. MI">
                 </p>
                 <hr>
-                <h3>OR</h3>
-                <hr>
-                <p>
-                    <label for="userZip">Parks Near You: </label>
-                    <input type="text" id="userZip" placeholder="Enter your ZIP Code">
-                </p>
+               
                 <button id="find-site">Find A Site!</button>
             </section>
         </div>
@@ -45,8 +41,8 @@
                     <td id="parkAddress"></td>
                 </tr> -->
                 <tr>
-                    <td class= "info">Open From:</td>
-                    <td id="openDates"><span>to</span></td>
+                    <td class= "info">Season:</td>
+                    <td id="openDates"></td>
                 </tr>
                 <tr>
                     <td class= "info">Total Sites:</td>
@@ -64,8 +60,12 @@
                     <td><textarea id="description" cols="55" rows="7"></textarea></td>
                 </tr>
             </table>
+            
             <section class="siteImage"></section>
             <nav class="nav">
+                <button class="reserve">
+                    <a id= "reserveLink"></a>
+                </button>
                 <button id="lastSite" class="nav-button">&lt; Last Site</button>
                 <button id="nextSite" class="nav-button">Next Site ></button>             
             </nav>
