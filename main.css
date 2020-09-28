@@ -111,10 +111,13 @@ tr td:nth-child(2){
     background-color: #54553c;
     color: #9bd92b;
     font-family: 'Amatic SC', cursive;
+    margin-top: 15px;
     width: 200px;
     height: 45px;
     font-size: 30px;
     border-radius: 10px;
+    float: right;
+    margin-right: 35px;
 }
 
 #find-site:hover {
@@ -175,4 +178,10 @@ tr td:nth-child(2){
     max-height: 275px;
     padding-right: 20px;
     border-radius: 10px;
+}
+
+#npsLogo{
+    width: 90px;
+    height: 100px;
+    margin-bottom: 10px;
 }
