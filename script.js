@@ -62,9 +62,13 @@ function displayResults(json){
     openDates.innerText = current.operatingHours[0].description;
     totalSites.innerText = current.campsites.totalSites;
     contact.innerText = current.contacts.emailAddresses[0].emailAddress;
-
-    let totalFee = current.fees[0].cost;
-    fees.innerText = '$' + parseFloat(totalFee);
+    
+    if(current.fees.length == 0){
+        fees.innerText = 'Site fee information not available';
+    } else{
+        let totalFee = current.fees[0].cost;
+        fees.innerText = '$' + parseFloat(totalFee);
+    }
 
     description.innerText = current.description;
     
@@ -78,13 +82,16 @@ function displayResults(json){
     };
 
     let siteImg = document.createElement('img');
-    if(current.images[0] !== '' || current.images[0] !== null || current.images[0] !== 0){
-        siteImg.src = current.images[0].url;
-    } else{
+
+    
+    if(current.images.length == 0){
         siteImg.src = './assets/imageNotFound.png';
-        siteImg.style.width = '200';
-        siteImg.style.height = '250';
+        siteImg.style.width = '250px';
+        siteImg.style.height = '230px';
+    } else{
+        siteImg.src = current.images[0].url;
     }
+
     wrapper.style.width = '1000px';
     nav.style.display = '';
     results.style.display = '';
@@ -92,6 +99,7 @@ function displayResults(json){
     siteImage.appendChild(siteImg);
     }
 };
+
 
 
 function nextSite(e){
